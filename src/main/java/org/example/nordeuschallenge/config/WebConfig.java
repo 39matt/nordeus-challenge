@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    // TODO promeni your vercel app u pravilan domain kad se hostuje
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
