@@ -1,10 +1,16 @@
 package org.example.nordeuschallenge.domain.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.example.nordeuschallenge.domain.enums.MoveType;
 
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "moves")
 public class Move {

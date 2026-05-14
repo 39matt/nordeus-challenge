@@ -1,12 +1,18 @@
 package org.example.nordeuschallenge.domain.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.example.nordeuschallenge.domain.enums.BattleStatus;
 import org.example.nordeuschallenge.domain.enums.Turn;
 
 import java.time.Instant;
 import java.util.UUID;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "battles")
 public class Battle {
@@ -14,14 +20,16 @@ public class Battle {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false)
-    private UUID runId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "run_id", nullable = false)
+    private Run run;
 
     @Column(nullable = false)
     private int battleIndex;
 
-    @Column(nullable = false)
-    private UUID monsterId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "monster_id", nullable = false)
+    private Monster monster;
 
     @Column(nullable = false)
     private int playerHp;
